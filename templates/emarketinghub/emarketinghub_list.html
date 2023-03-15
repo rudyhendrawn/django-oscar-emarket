@@ -1,0 +1,32 @@
+{% extends "oscar/layout.html" %}
+{% load i18n %}
+{% load product_tags %}
+{% block title %}
+{% trans "E-Marketing Hub" %} | {{ block.super }}
+{% endblock %}
+{% block breadcrumbs %}
+	<nav aria-label="breadcrumbs">
+		<ol class="breadcrumbs">
+			<li class="breadcrumbs-item">
+				<a href="{{ homepage_url }}">{% trans "Home" %}</a>
+			</li>
+			<li class="breadcrumbs-item active" aria-current="page">{% trans "E-Marketing Hub" %}
+			</li>
+		</ol>
+	</nav>
+{% endblock %}
+{% block headertext %}
+	{% trans "E-Marketing Hub" %}
+{% endblock %}
+{% block content %}
+	{% if not emarketinghub_list %}
+		<p>{% trans "There are no marketing list at the moment." %}</p>
+	{% else %}
+		{% for emarketing in emarketinghub_list %}
+		<p>
+			<h2><a href="{% url 'emarketinghub:details' emarketinghub.pk %}">{{ emarketinghub.name }}</a></h2>
+			E-Marketing Hub is in: {{emarketinghub.city}}
+		</p> <hr/>
+		{% endfor %}
+	{% endif %}
+{% endblock %}

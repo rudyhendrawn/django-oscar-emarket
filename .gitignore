@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development
+*.log
+*.env
+*.pyc
+*.bak
+*.swp
+
+# Media files
+/media/
+
+# Static files
+/static/
+
+# Secret keys and settings
+*.secret
+*.key
+settings_local.py
